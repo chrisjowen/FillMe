@@ -1,0 +1,5 @@
+C:\projects\FillMe\FillMe\FillMe\bin\Debug\FillMe.dll
+C:\projects\FillMe\FillMe\FillMe\bin\Debug\FillMe.pdb
+C:\projects\FillMe\FillMe\FillMe\obj\Debug\ResolveAssemblyReference.cache
+C:\projects\FillMe\FillMe\FillMe\obj\Debug\FillMe.dll
+C:\projects\FillMe\FillMe\FillMe\obj\Debug\FillMe.pdb
