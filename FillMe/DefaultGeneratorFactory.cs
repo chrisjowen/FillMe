@@ -14,8 +14,12 @@ namespace FillMe
             if (propertyType == typeof(int))
                 return new RandomWholeNumberGenerator(0, 100);            
             if (propertyType == typeof(decimal))
-                return new RandomDecimalNumberGenerator(0, 100);            
+                return new RandomDecimalNumberGenerator(0, 100);
+            if (propertyType.IsEnum)
+                return new RandomEnumGenerator(propertyType);
             return propertyType == typeof(DateTime) ? new RandomDateTimeGenerator() : null;
 		}
 	}
+
+
 }

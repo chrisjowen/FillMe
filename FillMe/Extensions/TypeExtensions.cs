@@ -5,7 +5,7 @@ namespace FillMe.Extensions
 {
 	public static class TypeExtensions{
 		public static bool IsAStandardType(this Type t){
-			return t.IsPrimitive || t == typeof(Decimal) || t == typeof(String) || t == typeof(DateTime);
+			return t.IsPrimitive || t == typeof(Decimal) || t == typeof(String) || t == typeof(DateTime) || t.IsEnum;
 		}
         public static bool IsEnumerable(this Type t)
         {

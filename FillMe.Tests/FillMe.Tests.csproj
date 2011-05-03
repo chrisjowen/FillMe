@@ -50,8 +50,13 @@
     <Compile Include="Extensions\TypeExtensionTests.cs" />
     <Compile Include="FillerTests.cs" />
     <Compile Include="Foo.cs" />
+    <Compile Include="Functional\AllowedPartner.cs" />
     <Compile Include="Functional\FillingDataTests.cs" />
-    <Compile Include="Functional\TestDependentPropertyGenerator.cs" />
+    <Compile Include="Functional\ComplexDependenciesTests.cs" />
+    <Compile Include="Functional\MaxAgeGenerator.cs" />
+    <Compile Include="Functional\MinAgeGenerator.cs" />
+    <Compile Include="Functional\SexGenerator.cs" />
+    <Compile Include="Functional\User.cs" />
     <Compile Include="MappingItemTests.cs" />
     <Compile Include="MappingSetTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

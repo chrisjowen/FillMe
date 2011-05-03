@@ -1,3 +1,4 @@
+using System;
 using System.Text;
 using FillIt;
 
@@ -29,5 +30,21 @@ namespace FillMe.DefaultGenerators
 			return sb.ToString();
 		}
 	}
+
+    public class RandomEnumGenerator : IGenerateDummyData
+    {
+        private readonly Type type;
+
+        public RandomEnumGenerator(Type type)
+        {
+            this.type = type;
+        }
+
+        public object Generate(object rootObject)
+        {
+            var enumValues = type.GetEnumValues();
+            return enumValues.GetValue(Constants.Random.Next(0, enumValues.Length));
+        }
+    }
 }
 
