@@ -1,5 +1,0 @@
-<Modules>
-  <Module PersistentId="AE9F39BD-3BBD-4A67-9C39-C915DBED97A7" ModuleId="FillIt" />
-  <Module PersistentId="9CFEA208-62CF-4398-8AA5-401B353341D1" ModuleId="FillMe" />
-  <Module PersistentId="29C600CB-06C0-4F76-9407-34C109DD6156" ModuleId="FillMe.Tests" />
-</Modules>
