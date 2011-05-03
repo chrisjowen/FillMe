@@ -7,7 +7,8 @@ namespace FillMe
     public interface IMappingSet
     {
         Type Type { get; }
-        IEnumerable<MappingItem> Items { get;  }
+        IEnumerable<IMappingItem> Items { get; }
         IMappingItem GetForProperty(PropertyInfo property);
+        IMappingSet UseDefaults();
     }
 }

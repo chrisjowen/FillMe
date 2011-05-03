@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
-namespace FillMe
+namespace FillMe.Tests
 {
     public class Foo
     {
@@ -11,6 +12,7 @@ namespace FillMe
         public Bar Bar { get; set; }
         public Goo Goo { get; set; }
         public string Description { get; set; }
+        public DateTime CreatedAt { get; set; }
         public List<Bar> Bars { get; set; }
     }
     public class Bar

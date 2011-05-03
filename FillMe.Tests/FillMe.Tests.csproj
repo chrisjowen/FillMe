@@ -46,13 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DefaultGeneratorFactoryTests.cs" />
     <Compile Include="Extensions\TypeExtensionTests.cs" />
     <Compile Include="FillerTests.cs" />
+    <Compile Include="Foo.cs" />
     <Compile Include="Functional\FillingDataTests.cs" />
     <Compile Include="Functional\TestDependentPropertyGenerator.cs" />
     <Compile Include="MappingItemTests.cs" />
     <Compile Include="MappingSetTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomStringGeneratorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FillMe\FillMe.csproj">

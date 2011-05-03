@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Reflection;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -29,6 +28,36 @@ namespace FillMe.Tests
             var mappingSet = new MappingSet<Foo>(generatorFactory);
             var mappingItemA = mappingSet.DefaultFor(f => f.Name);
             Assert.That(mappingItemA.Generator, Is.EqualTo(defaultGenerator));
+        }
+
+        [Test]
+        public void ShouldSetDefaultGeneratorToAllStandardPropertiesFromDefaultGeneratorFactory()
+        {
+            var defaultGeneratorFactory = MockRepository.GenerateMock<IProvideDefaultGenerators>();
+            var generator = MockRepository.GenerateStub<IGenerateDummyData>();
+
+            defaultGeneratorFactory.Stub(f => f.GetFor(Arg<PropertyInfo>.Is.Anything)).Return(generator);
+
+            var mappingSet = new MappingSet<Foo>(defaultGeneratorFactory);
+            mappingSet.UseDefaults();
+
+            Assert.That(mappingSet.Items.Count(), Is.EqualTo(6));
+        }
+
+        [Test]
+        public void UsingDefaultsShouldNotOverridePresetGenerators()
+        {
+            var defaultGeneratorFactory = MockRepository.GenerateMock<IProvideDefaultGenerators>();
+            var preSetGenerator = MockRepository.GenerateStub<IGenerateDummyData>();
+            var generator = MockRepository.GenerateStub<IGenerateDummyData>();
+
+            defaultGeneratorFactory.Stub(f => f.GetFor(Arg<PropertyInfo>.Is.Anything)).Return(generator);
+
+            var mappingSet = new MappingSet<Foo>(defaultGeneratorFactory);
+            mappingSet.For(f=> f.Age).Use(preSetGenerator);
+            mappingSet.UseDefaults();
+
+            Assert.That(mappingSet.Items.Any(i => i.Generator == preSetGenerator));
         }
     }
 }

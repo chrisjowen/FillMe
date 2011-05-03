@@ -49,7 +49,6 @@ namespace FillMe.Tests.Functional
         [Test]
         public void ShouldUsePrefilledDependentPropertyToCalculateValue()
         {
-            const string dummyData = "Data";
             var rootObject = new Foo();
             var filler = new Filler();
 
@@ -60,10 +59,10 @@ namespace FillMe.Tests.Functional
             dependentPropertyGenerator.Stub(g => g.Generate(rootObject)).Do(new GeneratorDelegate(root => ((Foo)root).Age + 1));
 
             filler.Configure<Foo>(config =>
-                                      {
-                                          config.For(f => f.Age).Use(generator);
-                                          config.For(f => f.CalculatedAge).Use(dependentPropertyGenerator);
-                                      });
+            {
+                config.For(f => f.Age).Use(generator);
+                config.For(f => f.CalculatedAge).Use(dependentPropertyGenerator);
+            });
 
             filler.Fill(rootObject);
             Assert.That(rootObject.Age, Is.EqualTo(10));
@@ -130,7 +129,7 @@ namespace FillMe.Tests.Functional
         }
 
         [Test]
-        public void CollectionsGenerateXDataTimes()
+        public void CollectionsGenerateDataXTimes()
         {
             var rootObject = new Foo();
             var filler = new Filler();

@@ -3,90 +3,304 @@
     <string />
     <integer />
     <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
       <setting name="SolutionAnalysisEnabled">False</setting>
     </boolean>
   </SettingsComponent>
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
-      <Item value="public" priority="2" />
-      <Item value="void" priority="0" />
-      <Item value="var" priority="2" />
-      <Item value="new" priority="4" />
+      <Item value="public" priority="11" />
+      <Item value="void" priority="2" />
+      <Item value="var" priority="11" />
+      <Item value="new" priority="12" />
       <Item value="Base64FormattingOptions`0" priority="0" />
-      <Item value="false" priority="1" />
-      <Item value="f" priority="0" />
-      <Item value="return" priority="3" />
-      <Item value="class" priority="0" />
-      <Item value="static" priority="1" />
+      <Item value="false" priority="2" />
+      <Item value="f" priority="3" />
+      <Item value="return" priority="21" />
+      <Item value="class" priority="4" />
+      <Item value="static" priority="3" />
       <Item value="FillerImpl`0" priority="0" />
       <Item value="FillerImpl" priority="0" />
-      <Item value="T`0" priority="1" />
-      <Item value="Filler`0" priority="2" />
-      <Item value="filler" priority="0" />
-      <Item value="private" priority="0" />
+      <Item value="T`0" priority="7" />
+      <Item value="Filler`0" priority="3" />
+      <Item value="filler" priority="2" />
+      <Item value="private" priority="2" />
       <Item value="IDictionary" priority="0" />
-      <Item value="Type`0" priority="0" />
-      <Item value="IList" priority="0" />
+      <Item value="Type`0" priority="2" />
+      <Item value="IList" priority="2" />
       <Item value="List`0" priority="0" />
-      <Item value="IMappingItem`0" priority="2" />
+      <Item value="IMappingItem`0" priority="5" />
       <Item value="mappingItems" priority="0" />
-      <Item value="if" priority="0" />
+      <Item value="if" priority="9" />
       <Item value="func" priority="0" />
-      <Item value="Assert`0" priority="0" />
-      <Item value="Foo`0" priority="0" />
-      <Item value="typeof" priority="1" />
-      <Item value="Instance" priority="0" />
-      <Item value="BindingFlags`0" priority="2" />
+      <Item value="Assert`0" priority="4" />
+      <Item value="Foo`0" priority="3" />
+      <Item value="typeof" priority="8" />
+      <Item value="Instance" priority="1" />
+      <Item value="BindingFlags`0" priority="8" />
       <Item value="fillingMap" priority="0" />
-      <Item value="Is`0" priority="1" />
+      <Item value="Is`0" priority="2" />
       <Item value="fillingMapB" priority="0" />
-      <Item value="PropertyInfo`0" priority="1" />
-      <Item value="where" priority="0" />
+      <Item value="PropertyInfo`0" priority="4" />
+      <Item value="where" priority="1" />
+      <Item value="Default" priority="0" />
+      <Item value="MappingItem`0" priority="3" />
+      <Item value="List&lt;MappingItem&gt;" priority="0" />
+      <Item value="For`0" priority="1" />
+      <Item value="memberExpression" priority="0" />
+      <Item value="IGenerateDummyData`0" priority="4" />
+      <Item value="IProvideDefaultGenerators`0" priority="1" />
+      <Item value="g" priority="1" />
+      <Item value="Arg`0" priority="0" />
+      <Item value="defaultGenerator" priority="0" />
+      <Item value="DefaultGeneratorFactory`0" priority="1" />
+      <Item value="MemberExpression`0" priority="0" />
+      <Item value="defaultGeneratorFactory" priority="0" />
+      <Item value="config" priority="0" />
+      <Item value="as" priority="1" />
+      <Item value="mappingAction" priority="0" />
+      <Item value="mappingSet" priority="5" />
+      <Item value="propertyExpression" priority="0" />
+      <Item value="rootObject" priority="15" />
+      <Item value="IMappingSet`0" priority="1" />
+      <Item value="set" priority="0" />
+      <Item value="type" priority="1" />
+      <Item value="foreach" priority="2" />
+      <Item value="in" priority="0" />
+      <Item value="null" priority="3" />
+      <Item value="mappingItem" priority="4" />
+      <Item value="object" priority="3" />
+      <Item value="Generate`0" priority="0" />
+      <Item value="dummyData" priority="0" />
+      <Item value="Fill`2" priority="0" />
+      <Item value="objectToFill" priority="1" />
+      <Item value="property" priority="3" />
+      <Item value="else" priority="3" />
+      <Item value="Delegate`0" priority="1" />
+      <Item value="EntryPointNotFoundException`0" priority="0" />
+      <Item value="dependentPropertyGenerator" priority="0" />
+      <Item value="int" priority="2" />
+      <Item value="this" priority="3" />
+      <Item value="propg" priority="0" />
+      <Item value="IEnumerable`0" priority="1" />
+      <Item value="Generic" priority="1" />
+      <Item value="List" priority="0" />
+      <Item value="MappingItems" priority="1" />
+      <Item value="using" priority="1" />
+      <Item value="System" priority="1" />
+      <Item value="Linq" priority="1" />
+      <Item value="m" priority="2" />
+      <Item value="item" priority="0" />
+      <Item value="propertiesForType" priority="0" />
+      <Item value="internal" priority="0" />
+      <Item value="mappedProperties" priority="0" />
+      <Item value="unmappedProperties" priority="0" />
+      <Item value="string" priority="2" />
+      <Item value="generator" priority="1" />
+      <Item value="dependentGenerator" priority="0" />
+      <Item value="goo" priority="0" />
+      <Item value="Bar`0" priority="0" />
+      <Item value="times" priority="0" />
+      <Item value="childObject" priority="2" />
+      <Item value="ICollection`0" priority="0" />
+      <Item value="IList`0" priority="0" />
+      <Item value="propertyType" priority="0" />
+      <Item value="First`1" priority="0" />
+      <Item value="for" priority="0" />
+      <Item value="i" priority="1" />
+      <Item value="listItemType" priority="0" />
+      <Item value="t" priority="0" />
+      <Item value="propertyInfo" priority="0" />
+      <Item value="prop" priority="0" />
+      <Item value="propertyName" priority="0" />
+      <Item value="SetUp" priority="0" />
+      <Item value="GetPropertyInfoFor`0" priority="0" />
+      <Item value="a" priority="0" />
+      <Item value="Random`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Collections.Generic.IList`1">
-      <Item value="Add`0" priority="0" />
+      <Item value="Add`0" priority="1" />
+      <Item value="Any`1" priority="0" />
+      <Item value="First`1" priority="0" />
+      <Item value="Count" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
-      <Item value="That`0" priority="1" />
+      <Item value="That`0" priority="3" />
+      <Item value="IsAssignableFrom`1" priority="0" />
+      <Item value="IsInstanceOf`1" priority="0" />
+      <Item value="IsInstanceOfType`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Type">
-      <Item value="GetProperty`0" priority="1" />
+      <Item value="GetProperty`0" priority="4" />
+      <Item value="GetProperties`0" priority="0" />
+      <Item value="IsClass" priority="0" />
+      <Item value="IsPrimitive" priority="0" />
+      <Item value="IsEnumerable`0" priority="2" />
+      <Item value="IsGenericType" priority="1" />
+      <Item value="GetGenericArguments`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Reflection.BindingFlags">
-      <Item value="Public" priority="1" />
-      <Item value="Instance" priority="0" />
+      <Item value="Public" priority="5" />
+      <Item value="Instance" priority="3" />
+      <Item value="NonPublic" priority="0" />
+      <Item value="SuppressChangeType" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NUnit.Framework.Is">
-      <Item value="EqualTo`0" priority="1" />
+      <Item value="EqualTo`0" priority="4" />
+      <Item value="TypeOf`1" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Collections.Generic.IDictionary`2">
-      <Item value="Count" priority="0" />
+      <Item value="Count" priority="1" />
+      <Item value="ContainsKey`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FillMe.Foo">
+      <Item value="Name" priority="2" />
+      <Item value="Age" priority="4" />
+      <Item value="Description" priority="0" />
+      <Item value="CalculatedAge" priority="0" />
+      <Item value="Bar" priority="1" />
+      <Item value="BarB" priority="0" />
+      <Item value="Goo" priority="0" />
+      <Item value="Bars" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FillMe.MappingItem">
+      <Item value="Equals`0" priority="0" />
+      <Item value="Use`0" priority="5" />
+      <Item value="Generator" priority="0" />
+      <Item value="Order`0" priority="0" />
+      <Item value="OrderNumber`0" priority="0" />
+      <Item value="Order" priority="1" />
+      <Item value="Property" priority="1" />
+      <Item value="Times`0" priority="0" />
+      <Item value="ItterationTimes" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Rhino.Mocks.MockRepository">
+      <Item value="GenerateStub`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FillMe.IProvideDefaultGenerators">
+      <Item value="Stub`2" priority="0" />
+      <Item value="GetFor`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Rhino.Mocks.Arg">
+      <Item value="Is`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Rhino.Mocks.Arg`1">
+      <Item value="Is" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Rhino.Mocks.Constraints.IsArg`1">
+      <Item value="Anything" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Rhino.Mocks.Interfaces.IMethodOptions`1">
+      <Item value="Return`0" priority="1" />
+      <Item value="Do`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FillMe.IMappingItem">
+      <Item value="Generator" priority="2" />
+      <Item value="ItterationTimes" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FillMe.MappingSet`1">
+      <Item value="For`0" priority="1" />
+      <Item value="MappingItems" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Action`1">
+      <Item value="Invoke`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.Expressions.Expression`1">
+      <Item value="NodeType" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.KeyValuePair`2">
+      <Item value="Value" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FillMe.IGenerateDummyData">
+      <Item value="Stub`2" priority="0" />
+      <Item value="Generate`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FillMe.IMappingSet">
+      <Item value="Type" priority="0" />
+      <Item value="Items" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FillMe.ObjectGenerator`1">
+      <Item value="Generate`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Reflection.PropertyInfo">
+      <Item value="SetValue`0" priority="0" />
+      <Item value="PropertyType" priority="4" />
+      <Item value="GetType`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FillMe.Bar">
+      <Item value="Name" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="OrderBy`2" priority="1" />
+      <Item value="Where`1" priority="1" />
+      <Item value="Contains`1" priority="0" />
+      <Item value="Concat`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.IOrderedEnumerable`1">
+      <Item value="ToList`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="Format`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FillMe.Goo">
+      <Item value="Name" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:FillMe.Filler">
+      <Item value="Fill`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="GetType`0" priority="1" />
     </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
-      <File id="AE9F39BD-3BBD-4A67-9C39-C915DBED97A7/f:DefaultGeneratorFactory.cs" caret="0" fromTop="0" />
-      <File id="AE9F39BD-3BBD-4A67-9C39-C915DBED97A7/f:Map.cs" caret="0" fromTop="0" />
-      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:Class1.cs" caret="0" fromTop="0" />
-      <File id="AE9F39BD-3BBD-4A67-9C39-C915DBED97A7/f:MapSet.cs" caret="165" fromTop="4" />
-      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Class1.cs" caret="421" fromTop="9" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:MappingItemTests.cs" caret="0" fromTop="0" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:MappingSetTests.cs" caret="0" fromTop="0" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/d:Functional/f:TestDependentPropertyGenerator.cs" caret="235" fromTop="7" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:IMappingSet.cs" caret="283" fromTop="11" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/d:Extensions/f:TypeExtensions.cs" caret="606" fromTop="18" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/d:Functional/f:FillingDataTests.cs" caret="5450" fromTop="38" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/d:Extensions/f:TypeExtensionTests.cs" caret="0" fromTop="0" />
+      <File id="d:&amp;/f:ObjectFiller.cs/l:C!?projects?FillMe?FillMe?FillMe?ObjectFiller.cs" caret="0" fromTop="0" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:Filler.cs" caret="3838" fromTop="100" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:MappingItem.cs" caret="0" fromTop="0" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:MappingSet.cs" caret="934" fromTop="30" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Foo.cs" caret="51" fromTop="2" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:FillerTests.cs" caret="93" fromTop="6" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:DefaultGeneratorFactory.cs" caret="367" fromTop="13" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:DefaultGeneratorFactoryTests.cs" caret="387" fromTop="18" />
     </RecentFiles>
     <RecentEdits>
-      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Class1.cs" caret="1923" fromTop="13" />
-      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Class1.cs" caret="732" fromTop="15" />
-      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Class1.cs" caret="816" fromTop="21" />
-      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Class1.cs" caret="866" fromTop="30" />
-      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Class1.cs" caret="1891" fromTop="57" />
-      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Class1.cs" caret="1306" fromTop="41" />
-      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Class1.cs" caret="1306" fromTop="47" />
-      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Class1.cs" caret="868" fromTop="23" />
-      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Class1.cs" caret="360" fromTop="6" />
-      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Class1.cs" caret="1041" fromTop="27" />
-      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Class1.cs" caret="1407" fromTop="29" />
-      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Class1.cs" caret="1543" fromTop="32" />
-      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Class1.cs" caret="1780" fromTop="43" />
-      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Class1.cs" caret="923" fromTop="25" />
-      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Class1.cs" caret="664" fromTop="11" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:Filler.cs" caret="3905" fromTop="46" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:Filler.cs" caret="1980" fromTop="22" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:Filler.cs" caret="3141" fromTop="42" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/d:Extensions/f:TypeExtensions.cs" caret="607" fromTop="15" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/d:Extensions/f:TypeExtensions.cs" caret="74" fromTop="2" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:Filler.cs" caret="3496" fromTop="43" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:MappingItem.cs" caret="143" fromTop="7" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:MappingItem.cs" caret="316" fromTop="12" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:Filler.cs" caret="1689" fromTop="27" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/d:Extensions/f:TypeExtensions.cs" caret="595" fromTop="17" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:Filler.cs" caret="3751" fromTop="25" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:Filler.cs" caret="3877" fromTop="29" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/d:Functional/f:FillingDataTests.cs" caret="5636" fromTop="39" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:MappingItem.cs" caret="486" fromTop="19" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:MappingItem.cs" caret="1124" fromTop="44" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:MappingItem.cs" caret="0" fromTop="0" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:MappingSet.cs" caret="968" fromTop="32" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:MappingSet.cs" caret="1161" fromTop="38" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:DefaultGeneratorFactory.cs" caret="101" fromTop="5" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:Foo.cs" caret="51" fromTop="2" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:DefaultGeneratorFactoryTests.cs" caret="987" fromTop="12" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:DefaultGeneratorFactoryTests.cs" caret="98" fromTop="1" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:DefaultGeneratorFactoryTests.cs" caret="987" fromTop="16" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:DefaultGeneratorFactoryTests.cs" caret="987" fromTop="21" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:DefaultGeneratorFactoryTests.cs" caret="994" fromTop="37" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:DefaultGeneratorFactoryTests.cs" caret="994" fromTop="37" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:DefaultGeneratorFactoryTests.cs" caret="965" fromTop="35" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:DefaultGeneratorFactoryTests.cs" caret="578" fromTop="23" />
+      <File id="9CFEA208-62CF-4398-8AA5-401B353341D1/f:DefaultGeneratorFactory.cs" caret="367" fromTop="13" />
+      <File id="29C600CB-06C0-4F76-9407-34C109DD6156/f:DefaultGeneratorFactoryTests.cs" caret="387" fromTop="18" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

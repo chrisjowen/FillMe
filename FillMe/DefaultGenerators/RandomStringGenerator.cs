@@ -1,9 +1,7 @@
-using System;
 using System.Text;
-using FillMe;
+using FillIt;
 
-
-namespace FillIt
+namespace FillMe.DefaultGenerators
 {
 	public class RandomStringGenerator : IGenerateDummyData
 	{
@@ -22,7 +20,7 @@ namespace FillIt
 		
 		public object Generate(object rootObject)
 		{
-			return GenerateString(new Random().Next(min, max));
+            return GenerateString(Constants.Random.Next(min, max));
 		}
 		
 		private string GenerateString(int size){

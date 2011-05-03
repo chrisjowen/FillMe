@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
 using FillMe.Extensions;
 
@@ -11,8 +10,7 @@ namespace FillMe
     public class Filler
     {
         private readonly IProvideDefaultGenerators generatorFactory;
-        private readonly Filler filler;
-        internal IList<IMappingSet> mappingSets = new List<IMappingSet>();
+        internal IList<IMappingSet> MappingSets = new List<IMappingSet>();
 
         public Filler(IProvideDefaultGenerators generatorFactory)
         {
@@ -23,12 +21,12 @@ namespace FillMe
         public IMappingSet Configure<T>(Action<MappingSet<T>> mappingAction = null)
         {
             var type = typeof(T);
-            if (!mappingSets.Any(s => s.Type == type))
+            if (!MappingSets.Any(s => s.Type == type))
             {
-                var mappingSet = new MappingSet<T>();
+                var mappingSet = new MappingSet<T>(generatorFactory);
                 if (mappingAction != null) mappingAction.Invoke(mappingSet);
 
-                mappingSets.Add(mappingSet);
+                MappingSets.Add(mappingSet);
             }
 
             return FindMappingSetFor(type);
@@ -69,7 +67,7 @@ namespace FillMe
         {
             var mappingItem = mappingSet.GetForProperty(property);
 
-            if (property.PropertyType.IsAPrimitive())
+            if (property.PropertyType.IsAStandardType())
             {
                 if (mappingItem != null && mappingItem.Generator != null)
                     property.SetValue(objectToFill, mappingItem.Generator.Generate(rootObject), null);
@@ -114,7 +112,9 @@ namespace FillMe
 
         private IMappingSet FindMappingSetFor(Type type)
         {
-            return mappingSets.FirstOrDefault(set => set.Type == type);
+            return MappingSets.FirstOrDefault(set => set.Type == type);
         }
+
+  
     }
 }

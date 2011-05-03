@@ -1,7 +1,6 @@
-
 using System;
-using System.Text;
-using System.Reflection;
+using FillMe;
+
 namespace FillIt
 {
 	public static class PrimitiveExtensions{
@@ -11,7 +10,7 @@ namespace FillIt
 		}
 		
 		public static char RandChar(this string s){
-			return s[new Random().Next(0, s.Length)];
+            return s[Constants.Random.Next(0, s.Length)];
 		}
 	}
 }

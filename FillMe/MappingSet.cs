@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Linq;
+using FillMe.Extensions;
 
 namespace FillMe
 {
@@ -10,12 +12,12 @@ namespace FillMe
     {
         private readonly IProvideDefaultGenerators defaultGeneratorFactory;
 
-        internal IDictionary<PropertyInfo, MappingItem> MappingItems 
-            = new Dictionary<PropertyInfo, MappingItem>();
+        internal IDictionary<PropertyInfo, IMappingItem> MappingItems 
+            = new Dictionary<PropertyInfo, IMappingItem>();
 
         public Type Type { get; private set; }
 
-        public IEnumerable<MappingItem> Items
+        public IEnumerable<IMappingItem> Items
         {
             get { return MappingItems.Select(m => m.Value).OrderBy(item => item.OrderNum).ToList(); }
         }
@@ -27,18 +29,35 @@ namespace FillMe
                 : MappingItems[propertyInfo];
         }
 
+
+        public IMappingSet UseDefaults()
+        {
+            var standardUnassignedProperties 
+                = GetPropertiesFor(Type).Where(p => p.PropertyType.IsAStandardType() && !MappingItems.ContainsKey(p));
+            
+            foreach (var property in standardUnassignedProperties){
+                MappingItems.Add(property, new MappingItem(property).Use(defaultGeneratorFactory.GetFor(property)));
+            }
+            return this;
+        }
+
+        private static IEnumerable<PropertyInfo> GetPropertiesFor(Type type)
+        {
+            return type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+        }
+
         public MappingSet()
             : this(new DefaultGeneratorFactory())
         {
-            Type = typeof(T);
         }
 
         public MappingSet(IProvideDefaultGenerators defaultGeneratorFactory)
         {
             this.defaultGeneratorFactory = defaultGeneratorFactory;
+            Type = typeof(T);
         }
 
-        public MappingItem For(Expression<Func<T, object>> memberExpression)
+        public IMappingItem For(Expression<Func<T, object>> memberExpression)
         {
             return For(GetPropertyInfoFrom(memberExpression));
         }
@@ -49,7 +68,7 @@ namespace FillMe
             return For(property).Use(defaultGeneratorFactory.GetFor(property));
         }
 
-        public MappingItem For(PropertyInfo propertyInfo)
+        public IMappingItem For(PropertyInfo propertyInfo)
         {
             if (!MappingItems.ContainsKey(propertyInfo))
                 MappingItems.Add(propertyInfo, new MappingItem(propertyInfo));

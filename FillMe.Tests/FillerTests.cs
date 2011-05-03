@@ -12,8 +12,8 @@ namespace FillMe.Tests
         {
             var filler = new Filler();
             filler.Configure<Foo>();
-            Assert.That(filler.mappingSets.Count(), Is.EqualTo(1));
-            Assert.That(filler.mappingSets.First().Type, Is.EqualTo(typeof(Foo)));
+            Assert.That(filler.MappingSets.Count(), Is.EqualTo(1));
+            Assert.That(filler.MappingSets.First().Type, Is.EqualTo(typeof(Foo)));
         }
 
         [Test]
@@ -28,9 +28,9 @@ namespace FillMe.Tests
                 config.For(f => f.Age).Use(generatoB);
             });
 
-            Assert.That(filler.mappingSets.Count(), Is.EqualTo(1));
+            Assert.That(filler.MappingSets.Count(), Is.EqualTo(1));
 
-            var mappingSet = filler.mappingSets.First() as MappingSet<Foo>;
+            var mappingSet = filler.MappingSets.First() as MappingSet<Foo>;
 
             Assert.That(mappingSet.Type, Is.EqualTo(typeof(Foo)));
             Assert.That(mappingSet.MappingItems.Count(), Is.EqualTo(2));
@@ -53,15 +53,12 @@ namespace FillMe.Tests
                 config.For(f => f.Description).Use(generator);
             });
 
-
             filler.Fill(rootObject);
 
             Assert.That(rootObject.Name, Is.EqualTo(dummyData));
             Assert.That(rootObject.Description, Is.EqualTo(dummyData));
             Assert.That(rootObject.Info, Is.Null);
         }
-
-    
 
     }
 }
