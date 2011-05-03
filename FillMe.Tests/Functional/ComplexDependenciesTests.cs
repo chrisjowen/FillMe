@@ -14,16 +14,16 @@ namespace FillMe.Tests.Functional
             var users = new List<User>();
             
             var filler = new Filler();
-            filler.Configure<Bar>().UseDefaults();
+            filler.Configure<Bar>().Defaults();
             filler.Configure<Foo>(config =>
             {
                 config.For(foo => foo.Bars).Times(Constants.Random.Next(100));
                 config.For(foo => foo.Age).Use(new RandomWholeNumberGenerator(10, 21)).Order(1);
-                config.For(foo => foo.CalculatedAge).Do<User, int>(usr => usr.Friend.Age + 20).Order(2);
-            }).UseDefaults();
+                config.For(foo => foo.CalculatedAge).Do(context => context.CurrentAs<Foo>().Age + 20).Order(2);
+            }).Defaults();
 
-            filler.Configure<Goo>().UseDefaults();
-            filler.Configure<User>().UseDefaults();
+            filler.Configure<Goo>().Defaults();
+            filler.Configure<User>().Defaults();
             filler.Configure<AllowedPartner>(config =>
             {
                 config.For(allowedPartner => allowedPartner.MinAge).Use(new MinAgeGenerator());
@@ -33,12 +33,5 @@ namespace FillMe.Tests.Functional
             1000.Times(() => users.Add(filler.Fill(new User())));
             users.ToString();
         }
-    }
-
-
-    public enum Sex
-    {
-        Male = 0,
-        Female = 1
     }
 }

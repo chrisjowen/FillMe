@@ -9,7 +9,7 @@ namespace FillMe.Tests.Functional
     public class FillingDataTests
     {
 
-        delegate object GeneratorDelegate(object rootObject);
+        delegate object GeneratorDelegate(GenerationContext context);
 
         [Test]
         public void ShouldFillSubObject()
@@ -19,7 +19,7 @@ namespace FillMe.Tests.Functional
             var filler = new Filler();
 
             var generator = MockRepository.GenerateStub<IGenerateDummyData>();
-            generator.Stub(g => g.Generate(rootObject)).Return(dummyData);
+            generator.Stub(g => g.Generate(Arg<GenerationContext>.Is.Anything)).Return(dummyData);
 
             filler.Configure<Foo>();
             filler.Configure<Bar>(config => config.For(f => f.Name).Use(generator));
@@ -38,7 +38,7 @@ namespace FillMe.Tests.Functional
             var filler = new Filler();
 
             var generator = MockRepository.GenerateStub<IGenerateDummyData>();
-            generator.Stub(g => g.Generate(rootObject)).Return(dummyData);
+            generator.Stub(g => g.Generate(Arg<GenerationContext>.Is.Anything)).Return(dummyData);
 
             filler.Configure<Bar>(config => config.For(f => f.Name).Use(generator));
 
@@ -53,10 +53,10 @@ namespace FillMe.Tests.Functional
             var filler = new Filler();
 
             var generator = MockRepository.GenerateStub<IGenerateDummyData>();
-            generator.Stub(g => g.Generate(rootObject)).Return(10);
+            generator.Stub(g => g.Generate(Arg<GenerationContext>.Is.Anything)).Return(10);
 
             var dependentPropertyGenerator = MockRepository.GenerateStub<IGenerateDummyData>();
-            dependentPropertyGenerator.Stub(g => g.Generate(rootObject)).Do(new GeneratorDelegate(root => ((Foo)root).Age + 1));
+            dependentPropertyGenerator.Stub(g => g.Generate(Arg<GenerationContext>.Is.Anything)).Do(new GeneratorDelegate(context => context.RootAs<Foo>().Age + 1));
 
             filler.Configure<Foo>(config =>
             {
@@ -76,10 +76,10 @@ namespace FillMe.Tests.Functional
             var filler = new Filler();
 
             var generator = MockRepository.GenerateStub<IGenerateDummyData>();
-            generator.Stub(g => g.Generate(rootObject)).Return(10);
+            generator.Stub(g => g.Generate(Arg<GenerationContext>.Is.Anything)).Return(10);
 
             var dependentPropertyGenerator = MockRepository.GenerateStub<IGenerateDummyData>();
-            dependentPropertyGenerator.Stub(g => g.Generate(rootObject)).Do(new GeneratorDelegate(root => ((Foo)root).Age + 1));
+            dependentPropertyGenerator.Stub(g => g.Generate(Arg<GenerationContext>.Is.Anything)).Do(new GeneratorDelegate(context => context.RootAs<Foo>().Age + 1));
 
             filler.Configure<Foo>(config =>
             {
@@ -109,10 +109,11 @@ namespace FillMe.Tests.Functional
             var filler = new Filler();
 
             var generator = MockRepository.GenerateStub<IGenerateDummyData>();
-            generator.Stub(g => g.Generate(rootObject)).Return("Chris");
+            generator.Stub(g => g.Generate(Arg<GenerationContext>.Is.Anything)).Return("Chris");
 
             var dependentGenerator = MockRepository.GenerateStub<IGenerateDummyData>();
-            dependentGenerator.Stub(g => g.Generate(rootObject)).Do(new GeneratorDelegate(root => string.Format("Hello {0}", ((Foo)root).Bar.Name)));
+            dependentGenerator.Stub(g => g.Generate(Arg<GenerationContext>.Is.Anything))
+                .Do(new GeneratorDelegate(context => string.Format("Hello {0}", context.RootAs<Foo>().Bar.Name)));
 
             filler.Configure<Goo>(config => config.For(goo => goo.Name).Use(dependentGenerator));
             filler.Configure<Bar>(config => config.For(goo => goo.Name).Use(generator));
@@ -135,7 +136,7 @@ namespace FillMe.Tests.Functional
             var filler = new Filler();
 
             var generator = MockRepository.GenerateStub<IGenerateDummyData>();
-            generator.Stub(g => g.Generate(rootObject)).Return("Chris");
+            generator.Stub(g => g.Generate(Arg<GenerationContext>.Is.Anything)).Return("Chris");
 
             filler.Configure<Bar>(config => config.For(goo => goo.Name).Use(generator));
             filler.Configure<Foo>(config => config.For(f => f.Bars).Times(10));

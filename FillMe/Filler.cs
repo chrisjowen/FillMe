@@ -70,7 +70,7 @@ namespace FillMe
             if (property.PropertyType.IsAStandardType())
             {
                 if (mappingItem != null && mappingItem.Generator != null)
-                    property.SetValue(objectToFill, mappingItem.Generator.Generate(rootObject), null);
+                    property.SetValue(objectToFill, mappingItem.Generator.Generate(new GenerationContext(rootObject, objectToFill)), null);
             }
             else
             {

@@ -4,9 +4,9 @@ namespace FillMe.Tests.Functional
 {
     public class MinAgeGenerator : IGenerateDummyData
     {
-        public object Generate(object rootObject)
+        public object Generate(GenerationContext context)
         {
-            var user = ((User)rootObject);
+            var user = context.RootAs<User>();
             var timeDiference = DateTime.Now - user.Dob;
             var age = timeDiference.Days / 365;
 

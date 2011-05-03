@@ -13,7 +13,7 @@ namespace FillMe.DefaultGenerators
             this.max = max;
         }
 
-        public object Generate(object rootObject)
+        public object Generate(GenerationContext context)
         {
             return Constants.Random.Next(min, max);
         }
@@ -32,7 +32,7 @@ namespace FillMe.DefaultGenerators
             precision = 2;
         }
 
-        public object Generate(object rootObject)
+        public object Generate(GenerationContext context)
         {
             return Math.Round(Constants.Random.Next(min, max-1) + Constants.Random.NextDouble(), precision);
         }
@@ -46,7 +46,7 @@ namespace FillMe.DefaultGenerators
 
     public class RandomDateTimeGenerator : IGenerateDummyData
     {
-        public object Generate(object rootObject)
+        public object Generate(GenerationContext context)
         {
             return new DateTime(Constants.Random.Next(1900, 2011), Constants.Random.Next(1, 12), Constants.Random.Next(1, 28));
         }

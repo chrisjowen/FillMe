@@ -46,7 +46,7 @@ namespace FillMe.Tests
             var filler = new Filler();
 
             var generator = MockRepository.GenerateStub<IGenerateDummyData>();
-            generator.Stub(g => g.Generate(rootObject)).Return(dummyData);
+            generator.Stub(g => g.Generate(Arg<GenerationContext>.Is.Anything)).Return(dummyData);
 
             filler.Configure<Foo>(config => {
                 config.For(f => f.Name).Use(generator);

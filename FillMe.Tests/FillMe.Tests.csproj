@@ -55,7 +55,7 @@
     <Compile Include="Functional\ComplexDependenciesTests.cs" />
     <Compile Include="Functional\MaxAgeGenerator.cs" />
     <Compile Include="Functional\MinAgeGenerator.cs" />
-    <Compile Include="Functional\SexGenerator.cs" />
+    <Compile Include="Functional\Sex.cs" />
     <Compile Include="Functional\User.cs" />
     <Compile Include="MappingItemTests.cs" />
     <Compile Include="MappingSetTests.cs" />

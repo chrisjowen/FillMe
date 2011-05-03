@@ -28,9 +28,9 @@ namespace FillMe
             return this;
         }
 
-        public IMappingItem Do<rootT, returnT>(Func<rootT, returnT> generateFunc)
+        public IMappingItem Do(Func<GenerationContext, object> generateFunc)
         {
-            return Use(new GeneratWithFunc<rootT, returnT>(generateFunc));
+            return Use(new GeneratWithFunc(generateFunc));
         }
 
         public IMappingItem Order(int order)
@@ -52,25 +52,25 @@ namespace FillMe
         }
     }
 
-    public class GeneratWithFunc<rootT, returnT> : IGenerateDummyData
+    public class GeneratWithFunc : IGenerateDummyData
     {
-        private readonly Func<rootT, returnT> generateFunc;
+        private readonly Func<GenerationContext, object> generateFunc;
 
-        public GeneratWithFunc(Func<rootT, returnT> generateFunc)
+        public GeneratWithFunc(Func<GenerationContext, object> generateFunc)
         {
             this.generateFunc = generateFunc;
         }
 
-        public object Generate(object rootObject)
+        public object Generate(GenerationContext context)
         {
-            return generateFunc((rootT) rootObject);
+            return generateFunc(context);
         }
     }
 
     public interface IMappingItem
     {
         IMappingItem Use(IGenerateDummyData generatorOne);
-        IMappingItem Do<rootT, returnT>(Func<rootT, returnT> generateFunc);
+        IMappingItem Do(Func<GenerationContext, object> generateFunc);
         IGenerateDummyData Generator { get; }
         IMappingItem Order(int order);
         IMappingItem Times(int times);

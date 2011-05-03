@@ -39,7 +39,7 @@ namespace FillMe.Tests
             defaultGeneratorFactory.Stub(f => f.GetFor(Arg<PropertyInfo>.Is.Anything)).Return(generator);
 
             var mappingSet = new MappingSet<Foo>(defaultGeneratorFactory);
-            mappingSet.UseDefaults();
+            mappingSet.Defaults();
 
             Assert.That(mappingSet.Items.Count(), Is.EqualTo(6));
         }
@@ -55,7 +55,7 @@ namespace FillMe.Tests
 
             var mappingSet = new MappingSet<Foo>(defaultGeneratorFactory);
             mappingSet.For(f=> f.Age).Use(preSetGenerator);
-            mappingSet.UseDefaults();
+            mappingSet.Defaults();
 
             Assert.That(mappingSet.Items.Any(i => i.Generator == preSetGenerator));
         }

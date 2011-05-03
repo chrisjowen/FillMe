@@ -30,7 +30,7 @@ namespace FillMe
         }
 
 
-        public IMappingSet UseDefaults()
+        public IMappingSet Defaults()
         {
             var standardUnassignedProperties 
                 = GetPropertiesFor(Type).Where(p => p.PropertyType.IsAStandardType() && !MappingItems.ContainsKey(p));

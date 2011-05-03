@@ -9,6 +9,6 @@ namespace FillMe
         Type Type { get; }
         IEnumerable<IMappingItem> Items { get; }
         IMappingItem GetForProperty(PropertyInfo property);
-        IMappingSet UseDefaults();
+        IMappingSet Defaults();
     }
 }

@@ -18,8 +18,8 @@ namespace FillMe.DefaultGenerators
 			this.max = max;
 			allowedChars = alphaChars + numericChars;
 		}
-		
-		public object Generate(object rootObject)
+
+        public object Generate(GenerationContext context)
 		{
             return GenerateString(Constants.Random.Next(min, max));
 		}
@@ -40,7 +40,7 @@ namespace FillMe.DefaultGenerators
             this.type = type;
         }
 
-        public object Generate(object rootObject)
+        public object Generate(GenerationContext context)
         {
             var enumValues = type.GetEnumValues();
             return enumValues.GetValue(Constants.Random.Next(0, enumValues.Length));
