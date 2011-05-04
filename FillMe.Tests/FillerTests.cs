@@ -31,7 +31,6 @@ namespace FillMe.Tests
             Assert.That(filler.MappingSets.Count(), Is.EqualTo(1));
 
             var mappingSet = filler.MappingSets.First() as MappingSet<Foo>;
-
             Assert.That(mappingSet.Type, Is.EqualTo(typeof(Foo)));
             Assert.That(mappingSet.MappingItems.Count(), Is.EqualTo(2));
             Assert.That(mappingSet.MappingItems.First().Value.Generator, Is.EqualTo(generator));
@@ -60,5 +59,24 @@ namespace FillMe.Tests
             Assert.That(rootObject.Info, Is.Null);
         }
 
+        [Test]
+        public void IgnoringPropertiesWillPreventFilling()
+        {
+            const string dummyData = "Data";
+            var generator = MockRepository.GenerateStub<IGenerateDummyData>();
+            generator.Stub(g => g.Generate(Arg<GenerationContext>.Is.Anything)).Return(dummyData);
+
+            var filler = new Filler();
+            var rootObject = new Foo();
+
+            filler.Configure<Foo>(config =>{
+                config.For(f => f.Description).Use(generator).Ignore();
+                config.For(f => f.Name).Use(generator);
+            });
+
+            filler.Fill(rootObject);
+            Assert.That(rootObject.Name, Is.EqualTo(dummyData));
+            Assert.That(rootObject.Description, Is.Null);
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using FillIt;
-using FillMe.DefaultGenerators;
+using FillMe.Generators;
 using NUnit.Framework;
 
 namespace FillMe.Tests.Functional

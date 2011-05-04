@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Reflection;
-using FillMe.DefaultGenerators;
+using FillMe.Generators;
 using NUnit.Framework;
 
 namespace FillMe.Tests
@@ -53,8 +53,5 @@ namespace FillMe.Tests
             var propertyInfo = typeof (FooBar).GetProperty(propertyName, BindingFlags.Instance | BindingFlags.Public);
             return factory.GetFor(propertyInfo); ;
         }
-
     }
-
-  
 }

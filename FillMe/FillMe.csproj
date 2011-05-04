@@ -40,9 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefaultGenerators\RandomWholeNumberGenerator.cs" />
+    <Compile Include="Generators\RandomDateTimeGenerator.cs" />
+    <Compile Include="Generators\RandomDecimalNumberGenerator.cs" />
+    <Compile Include="Generators\RandomEnumGenerator.cs" />
+    <Compile Include="Generators\RandomWholeNumberGenerator.cs" />
     <Compile Include="Exceptions\CantAssignGeneratorProblem.cs" />
-    <Compile Include="DefaultGeneratorFactory.cs" />
+    <Compile Include="Generators\DefaultGeneratorFactory.cs" />
     <Compile Include="Filler.cs" />
     <Compile Include="IGenerateDummyData.cs" />
     <Compile Include="IMappingSet.cs" />
@@ -52,9 +55,9 @@
     <Compile Include="MappingItem.cs" />
     <Compile Include="MappingSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DefaultGenerators\RandomStringGenerator.cs" />
+    <Compile Include="Generators\RandomStringGenerator.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
-    <Compile Include="Internal.cs" />
+    <Compile Include="Constants.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

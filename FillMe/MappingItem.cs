@@ -9,17 +9,23 @@ namespace FillMe
     {
         private IGenerateDummyData generator;
         public PropertyInfo Property { get; private set; }
-
         public int ItterationTimes { get; private set; }
         public int OrderNum { get; private set; }
+        public bool ShouldIgnore { get; private set; }
 
   
         public MappingItem(PropertyInfo property)
         {
             Property = property;
             ItterationTimes = 1;
+            ShouldIgnore = false;
         }
 
+        public IMappingItem Ignore()
+        {
+            ShouldIgnore = true;
+            return this;
+        }
         public IMappingItem Use(IGenerateDummyData generator)
         {
             if (Property.PropertyType.IsEnumerable() && generator!=null)
@@ -74,8 +80,11 @@ namespace FillMe
         IGenerateDummyData Generator { get; }
         IMappingItem Order(int order);
         IMappingItem Times(int times);
+        IMappingItem Ignore();
         PropertyInfo Property { get; }
         int ItterationTimes { get; }
         int OrderNum { get; }
+        bool ShouldIgnore { get; }
+
     }
 }

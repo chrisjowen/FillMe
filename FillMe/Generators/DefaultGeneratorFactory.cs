@@ -1,8 +1,8 @@
 using System;
 using System.Reflection;
-using FillMe.DefaultGenerators;
+using FillMe.Generators;
 
-namespace FillMe
+namespace FillMe.Generators
 {
 	public class DefaultGeneratorFactory : IProvideDefaultGenerators
 	{

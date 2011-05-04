@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using FillMe.Extensions;
+using FillMe.Generators;
 
 namespace FillMe
 {
@@ -12,11 +13,12 @@ namespace FillMe
         private readonly IProvideDefaultGenerators generatorFactory;
         internal IList<IMappingSet> MappingSets = new List<IMappingSet>();
 
+        public Filler() : this(new DefaultGeneratorFactory()) { }
+
         public Filler(IProvideDefaultGenerators generatorFactory)
         {
             this.generatorFactory = generatorFactory;
         }
-        public Filler() : this(new DefaultGeneratorFactory()) { }
 
         public IMappingSet Configure<T>(Action<MappingSet<T>> mappingAction = null)
         {
@@ -24,11 +26,11 @@ namespace FillMe
             if (!MappingSets.Any(s => s.Type == type))
             {
                 var mappingSet = new MappingSet<T>(generatorFactory);
-                if (mappingAction != null) mappingAction.Invoke(mappingSet);
+                if (mappingAction != null) 
+                    mappingAction.Invoke(mappingSet);
 
                 MappingSets.Add(mappingSet);
             }
-
             return FindMappingSetFor(type);
         }
 
@@ -44,8 +46,7 @@ namespace FillMe
             var mappingSet = FindMappingSetFor(type);
             if (mappingSet == null) return;
 
-            foreach (var property in GetOrderedProperties(type, mappingSet))
-            {
+            foreach (var property in GetOrderedProperties(type, mappingSet)){
                 PopulateProperty(mappingSet, property, rootObject, objectToFill);
             }
         }
@@ -66,14 +67,11 @@ namespace FillMe
         private void PopulateProperty<T>(IMappingSet mappingSet, PropertyInfo property, object rootObject, T objectToFill)
         {
             var mappingItem = mappingSet.GetForProperty(property);
-
-            if (property.PropertyType.IsAStandardType())
-            {
-                if (mappingItem != null && mappingItem.Generator != null)
+            if (property.PropertyType.IsAStandardType()){
+                if (mappingItem != null && mappingItem.Generator != null && !mappingItem.ShouldIgnore)
                     property.SetValue(objectToFill, mappingItem.Generator.Generate(new GenerationContext(rootObject, objectToFill)), null);
             }
-            else
-            {
+            else{
                 PopulateObject(mappingItem, property, objectToFill, rootObject);
             }
         }
@@ -100,7 +98,7 @@ namespace FillMe
             }
         }
 
-        private object CreateInstance(Type type)
+        private static object CreateInstance(Type type)
         {
             return Activator.CreateInstance(type);
         }
