@@ -146,5 +146,26 @@ namespace FillMe.Tests.Functional
             Assert.That(rootObject.Bars.First().Name, Is.EqualTo("Chris"));
         }
 
+        [Test]
+        public void CollectionsGenerateDataBetweenXandYTimes()
+        {
+            var filler = new Filler();
+
+            var generator = MockRepository.GenerateStub<IGenerateDummyData>();
+            generator.Stub(g => g.Generate(Arg<GenerationContext>.Is.Anything)).Return("Chris");
+
+            filler.Configure<Bar>(config => config.For(goo => goo.Name).Use(generator));
+            filler.Configure<Foo>(config => config.For(f => f.Bars).Between(10, 20));
+
+            for (var i = 0; i <= 100; i++)
+            {
+                var rootObject = new Foo();
+                filler.Fill(rootObject);
+                var bars = rootObject.Bars.Count;
+                Assert.That(bars, Is.LessThanOrEqualTo(20));
+                Assert.That(bars, Is.GreaterThanOrEqualTo(10));
+            }
+        }
+
     }
 }

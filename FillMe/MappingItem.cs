@@ -55,6 +55,12 @@ namespace FillMe
         {
             ItterationTimes = times;
             return this;
+        }      
+        
+        public IMappingItem Between(int min, int max)
+        {
+            ItterationTimes = Constants.Random.Next(min, max);
+            return this;
         }
     }
 
@@ -80,11 +86,11 @@ namespace FillMe
         IGenerateDummyData Generator { get; }
         IMappingItem Order(int order);
         IMappingItem Times(int times);
+        IMappingItem Between(int min, int max);
         IMappingItem Ignore();
         PropertyInfo Property { get; }
         int ItterationTimes { get; }
         int OrderNum { get; }
         bool ShouldIgnore { get; }
-
     }
 }

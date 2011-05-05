@@ -31,8 +31,7 @@ namespace FillMe
 
         public IMappingSet Defaults()
         {
-            var standardUnassignedProperties 
-                = GetPropertiesFor(Type).Where(p => p.PropertyType.IsAStandardType() && !MappingItems.ContainsKey(p));
+            var standardUnassignedProperties = GetPropertiesFor(Type).Where(p => p.PropertyType.IsAStandardType() && !MappingItems.ContainsKey(p));
             
             foreach (var property in standardUnassignedProperties){
                 MappingItems.Add(property, new MappingItem(property).Use(defaultGeneratorFactory.GetFor(property)));
